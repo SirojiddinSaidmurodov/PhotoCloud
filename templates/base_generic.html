@@ -18,6 +18,31 @@
     <link>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <img src="{% static 'catalogue/icons8-cloud-binary-code-48_light.png' %}" height="30" width="30"
+         class="d-inline-block align-top" style="margin: 5px" alt="logo">
+    <a class="navbar-brand" href="{% url 'index' %}">PhotoCloud</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-md-auto">
+
+            {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Logged in as {{ user.get_username }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}?next={{ request.path }}">Logout</a>
+                    </div>
+                </li>
+            {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}?next={{ request.path }}">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
 <div class="container container-fluid">
     {% block sidebar %}{% endblock %}
 
