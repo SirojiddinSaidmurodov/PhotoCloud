@@ -34,7 +34,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="{% url 'account' %}">My account</a>
                         <a class="dropdown-item" href="{% url 'logout' %}?next={{ request.path }}">Logout</a>
                     </div>
                 </li>
