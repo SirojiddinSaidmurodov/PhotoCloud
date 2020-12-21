@@ -1,9 +1,11 @@
 # Create your models here.
+from django.contrib.auth.models import User
 from django.db import models
 
 
 class PhotoMetaData(models.Model):
     id = models.UUIDField(null=False, help_text='UUID is a photo name', primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     placeLat = models.FloatField(null=True, help_text='Latitude of place')
     placeLong = models.FloatField(null=True, help_text='Longitude of place')
     placeName = models.TextField(null=True, max_length=512, help_text='Address of place')
