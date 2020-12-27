@@ -1,0 +1,9 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <form method="post" action="{% url 'upload' %}">
+        {% csrf_token %}
+        <input type="file" name="photo" alt="img">
+        <input type="submit" value="Отправить">
+    </form>
+{% endblock %}

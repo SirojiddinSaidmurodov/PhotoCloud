@@ -10,7 +10,7 @@ class PhotoMetaData(models.Model):
     placeLong = models.FloatField(null=True, help_text='Longitude of place')
     placeName = models.TextField(null=True, max_length=512, help_text='Address of place')
     camera = models.TextField(null=True, max_length=255, help_text='Camera model')
-    shootDate = models.DateTimeField(null=False, help_text='Date when photo was taken')
+    shootDate = models.DateTimeField(null=True, help_text='Date when photo was taken')
 
     class Meta:
         ordering = ['shootDate']
